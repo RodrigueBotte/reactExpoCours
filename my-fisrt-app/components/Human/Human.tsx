@@ -1,19 +1,21 @@
 import { Colors } from "@/constants/Colors";
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
+import { StyleSheet, Text, Image } from "react-native";
 
-export default function Human() {
-    const colorScheme = useColorScheme();
+interface HumanProps{
+  firstName: string,
+  name: string,
+  age: number
+}
+
+export default function Human({firstName, name, age}: HumanProps) {
 
     return (
-        <View style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]}>
-            <Text style={[styles.text, { color: Colors[colorScheme ?? 'light'].text }]}>
-                Je suis un humain!
-            </Text>
-            <Text style={[styles.description, {color: Colors[colorScheme?? 'light'].text}]}>
-                Ceci est mon premier composant personanlisé
-            </Text>
-        </View>
-    )
+      <>
+        <Text style={{ color: "white" }}>
+          Mon prénom est {firstName} et mon nom est {name}, j'ai {age} ans.
+        </Text>
+      </>
+    );
 }
 
 const styles = StyleSheet.create({

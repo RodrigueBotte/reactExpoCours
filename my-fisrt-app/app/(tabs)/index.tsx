@@ -13,19 +13,14 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
-    // <ThemedView
-    //   style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-    // >
-    //   <Human />
-    //   <ThemedText>Fin de l'écran</ThemedText>
-    //   <View style={s.square}>
-    //     <Text>Mon carré stylé</Text>
-    //   </View>
-    // </ThemedView>
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        
-        <FlexDemo/>
+      <SafeAreaView>
+        <Human firstName="Pierre" name="Defauquet" age={28}></Human>
+        <Image
+          style={{ height: 200, width: 200 }}
+          source={{
+            uri: "https://www.assuropoil.fr/wp-content/uploads/berger-australien.jpg",
+          }} />
       </SafeAreaView>
     </SafeAreaProvider>
   );
