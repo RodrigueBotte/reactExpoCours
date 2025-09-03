@@ -1,30 +1,28 @@
 import { Image } from "expo-image";
-import { Platform, StyleSheet, Text } from "react-native";
-import { s } from "../../App.styles";
-import { FlexDemo } from "../../components/Flexdemo";
-import { AgeCounter } from "../../components/AgeCounter/AgeCounter";
+import { Alert, StyleSheet } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import Human from "@/components/Human/Human";
-import { View } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { Child } from "@/components/Child/Child";
+import { PlatformDetector } from "@/components/PlatformDetector/PlatformDetector";
 
 export default function HomeScreen() {
+    function hello(name: string) {
+      Alert.alert("Hello" + name);
+    }
+  
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={<Image source={require("@/assets/images/react-logo.png")} style={styles.reactLogo} />}
-    >
+    <ParallaxScrollView headerImage={<Image source={require('@/assets/images/partial-react-logo.png')}/>} headerBackgroundColor={{light: '#A1CEDC', dark:'#1D3D47'}}>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">React Native States</ThemedText>
+        <ThemedText type="title">Détection platforms</ThemedText>
       </ThemedView>
-      <ThemedView>
-        <AgeCounter />
+
+      <ThemedView style={styles.stepContainer}>
+        <PlatformDetector/>
       </ThemedView>
     </ParallaxScrollView>
+
   );
 }
 
